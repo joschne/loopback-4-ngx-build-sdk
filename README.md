@@ -66,7 +66,7 @@ The script does two things:
 
 Modify the parameters in the script as needed.
 
-## Add script package.json
+## Add script to package.json
 
 In package.json of the loopback root folder add those two scripts:
 
