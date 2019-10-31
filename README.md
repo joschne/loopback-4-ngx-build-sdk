@@ -42,6 +42,28 @@ npm install @openapitools/openapi-generator-cli -save-dev
 
 Copy the shell script from this repository `build-ngx-sdk.sh` to the root directory of your loopback 4 app.
 
+This is the script:
+
+```sh
+
+############# download the openapi.json ################
+curl http://\[::1\]:3000/explorer/openapi.json \
+  --output openapi.json
+
+############## create the sdk ##################
+./node_modules/.bin/openapi-generator generate \
+  -i openapi.json \
+  -g typescript-angular \
+  -o sdk \
+  --additional-properties=\"ngVersion=8.3.1\"
+
+```
+
+The script does two things:
+
+1. it downloads the OpenApi specs
+2. it creates the typescript angular sdk
+
 Modify the parameters in the script as needed.
 
 ## Add script package.json
