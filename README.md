@@ -1,6 +1,6 @@
 # loopback-4-ngx-build-sdk
 
-This is an example setup for creating angular 8 sdk from loopback 4 app using openapi spec and openapi-generator-cli.
+This is an example setup for creating typescript angular sdk from loopback 4 app using openapi spec and openapi-generator-cli.
 
 # Test the setup
 
