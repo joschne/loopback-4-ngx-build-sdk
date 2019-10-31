@@ -50,10 +50,12 @@ In package.json of the loopback root folder add those two scripts:
 
 ```jsonc
  "scripts": {
-   ...
+
+   // ...
 
     "sdk:build": "bash build-ngx-sdk.sh",
-    ...
+   // ...
+
   }
 ```
 
@@ -84,39 +86,41 @@ If you are [mounting loopback 3 in loopback 4](https://loopback.io/doc/en/lb4/mi
 The easiest workaround I found: Add the related models as properies in loopack 3 model definitions, e.g.:
 
 ```jsonc
- // looback3/common/models/foo.json
- {
-    "name": "Foo",
-    ...
+// looback3/common/models/foo.json
+{
+  "name": "Foo",
 
-    "relations": {
-      "bar": {
-        "type": "hasMany",
-        "model": "Bar",
-        "primaryKey": "id",
-        "foreignKey": "foo_id"
-      }
-    },
-    ...
+  // ...
 
-    "properties": {
-      "id": {
-        "type": "number",
-        "id": true,
-        "generated": true
-      },
-      "name": {
-        "type": "string"
-      },
-      // Add bar as property to make it appear in openapi spec and sdk !!
-      // use RelatedModel or [RelatedModel] as type, depending on cardinality
-      "bar": {
-        "type": [ "Bar" ]
-      }
+  "relations": {
+    "bar": {
+      "type": "hasMany",
+      "model": "Bar",
+      "primaryKey": "id",
+      "foreignKey": "foo_id"
+    }
+  },
+
+  // ...
+
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
     },
-    ...
+    "name": {
+      "type": "string"
+    },
+    // Add bar as property to make it appear in openapi spec and sdk !!
+    // use RelatedModel or [RelatedModel] as type, depending on cardinality
+    "bar": {
+      "type": ["Bar"]
+    }
   }
 
+  // ...
+}
 ```
 
 This made the related models appear in api explorer, in openapi.json and also in the resulting sdk.
