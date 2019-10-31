@@ -48,7 +48,7 @@ Modify the parameters in the script as needed.
 
 In package.json of the loopback root folder add those two scripts:
 
-```json
+```jsonc
  "scripts": {
    ...
 
@@ -83,7 +83,7 @@ If you are [mounting loopback 3 in loopback 4](https://loopback.io/doc/en/lb4/mi
 
 The easiest workaround I found: Add the related models as properies in loopack 3 model definitions, e.g.:
 
-```json
+```jsonc
  // looback3/common/models/foo.json
  {
     "name": "Foo",
